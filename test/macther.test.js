@@ -145,4 +145,48 @@ test("test exception matcher", () => {
 	// Tetapi jika return error nya itu teks "Ups something went wrong !" atau "Ups something went wrong ?" maka akan sukses test nya
 	// Karena yg penting di string error nya harus ada teks yg di passing sbg paramteer dari toThrow function yaitu teks "Ups something went wrong"
 	expect(() => callMe("Mathius")).toThrow("Ups something went wrong");
+
+	expect(callMe()).toBe("Aman");
+
+	/*
+		========== Code Coverage  ==========
+
+		Code Coverage merupakan sebuah fitur dalam Jest
+		yg berguna untuk mengetahui apakah setiap baris kode-kode,
+		function, branche (logica if-else) sudah tercover atau belum.
+		Apakah skenario-skenario nya sudah terpenuhi. Ini adalah best practice
+		untuk menerapkan code coverage. Biasnaya di perushaan besar akan menaruh code coveragenya
+		berada 70%-90%.
+
+		Secara defaut, Jest akan menonaktifkan code coverage. Oleh sebab
+		itu kita hahurs mengaktifknanya dengan cara menambahkan 
+		collectCoverage: true kedalam jest config nya.
+		Ketika menajalankan code coverage, Jest akan membuatkan sebuah folder baru
+		bernama coverage yg berisi file-file html yang dapat kita buka dan disana
+		akan di tampikan code coverage dari unit test kita. Perlu di ingat, folder coverage ini
+		hrus di ignore ketika kita menggunakan git.
+
+		Secara ummum ketika menjalankan code coverage, maka Jest akan menampilkan
+		data-data beretikut :
+		a. Statements (percentage)
+		   Untuk mendefinisikan persentase dari setiap statement-statement yg sudah tercover unit test
+		b. Branch 
+		   Untuk mendefinisikan persentase dari setiap kondisi if-else yg sudah tercover unit test
+		c. Funcs
+		   Untuk mendefinisikan persentase dari setiap function-function yg sudah tercover unit test
+		d. Lines
+		   Untuk mendefinisikan persentase dari setiap baris-baris yg sudah tercover unit test
+		e. Uncovered Lines
+	    Untuk mendefinisikan persentase dari setiap baris-baris yg blm tercover unit test
+
+			Dibawah ini berguna untuk membuat Jest otomatis error, ketika code coverage nya tidak sesuai deng apa yg kita harapkan
+		  coverageThreshold: {
+				global: {
+					branches: 100,
+					functions: 100,
+					lines: 100,
+					statements: 100
+				}
+			},
+	*/
 });

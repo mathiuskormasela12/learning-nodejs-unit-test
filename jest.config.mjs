@@ -17,10 +17,18 @@ export default {
   // clearMocks: false,
 
   // Indicates whether the coverage information should be collected while executing the test
-  // collectCoverage: false,
+	// Untuk enable code coverage
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
+	// Untuk mendefinsikan file/folder mana aja yg hrus kene code coverage
+  collectCoverageFrom: [
+		"**/*.{js,jsx}",
+		// Menamnbahkan tanda seru "!" untuk mengecualikan sebuah folder/file
+		"!vendor/*.{js,jsx}",
+		// Menamnbahkan tanda seru "!" untuk mengecualikan sebuah folder/file
+		"!coverage/**"
+	],
 
   // The directory where Jest should output its coverage files
   // coverageDirectory: undefined,
@@ -42,7 +50,16 @@ export default {
   // ],
 
   // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
+	// Untuk memaksa ketika persentase code coverage nya tidak sesuai yang di harapkan maka unit test nya akan failed
+	// Ini guna untuk memberi tahu developer, bahwa kita hrus memenuhi code coverage yg sudah kita definisikan
+  coverageThreshold: {
+		global: {
+			branches: 100,
+			functions: 100,
+			lines: 100,
+			statements: 100
+		}
+	},
 
   // A path to a custom dependency extractor
   // dependencyExtractor: undefined,
