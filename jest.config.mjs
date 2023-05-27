@@ -212,4 +212,13 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+	// Untuk membuat jest hanya boleh memiliki 1 concurrent method
+	// Kalau kita set 2, maka maksimal akan di jalankan 2 concurrent method
+	// Jika ada 2 concurrent method, maka akan di split menjadi 2 bagian
+	// Dan setiap bagiannya akan di jalankan secara pararel, 
+	// Maksudnya misal di bagian pertama itu ada test bernama test a dan test b dan di bagian kedua ada test c dan test d
+	// Maka test a dan test b akan di jalankna secara pararel, sementara test c dan test d akan menunggun sampi test a dan test b selesai
+	// setelah test a dan test b selesai, maka test c dan test d akan di jalankna secara pararel juga
+	maxConcurrency: 2
 };
